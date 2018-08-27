@@ -25,4 +25,4 @@
 ;;;;;
 (defmethod on-exception ((app <router>) (code (eql 404)))
   (declare (ignore app))
-  "404")
+  "Strobolights: 404")
