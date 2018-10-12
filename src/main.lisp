@@ -6,13 +6,16 @@
   (:import-from #:clack
                 #:clackup)
   (:export #:start
-           #:stop))
+           #:stop
+           #:*additional-components*))
 (in-package :strobolights)
 
 (defvar *appfile-path*
   (asdf:system-relative-pathname :strobolights #P"src/app.lisp"))
 
 (defvar *handler* nil)
+
+(defparameter *additional-components* nil)
 
 (defun start (&rest args &key
                            (server (config :http :server :type))
