@@ -21,7 +21,7 @@
         `(:backtrace
           :output ,(config :log :error :directory))
         nil)
-    :session
+    (:session :state (lack.middleware.session.state.cookie:make-cookie-state :cookie-key "glpgs.session"))
     :validation
     ,@*additional-components*
     *route*))

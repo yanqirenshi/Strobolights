@@ -17,12 +17,12 @@
 ;;;;;
 ;;;;; Routing rules
 ;;;;;
-(defroute "/" ()
-  "")
+(defroute "/" () "")
 
 ;;;;;
 ;;;;; Error pages
 ;;;;;
 (defmethod on-exception ((app <router>) (code (eql 404)))
   (declare (ignore app))
-  "Strobolights: 404")
+  (format nil "Strobolights: 404. Path=~S"
+          (caveman2:request-path-info caveman2:*request*)))

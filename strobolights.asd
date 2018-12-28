@@ -9,6 +9,7 @@
   :license "MIT"
   :depends-on (:clack
                :lack
+               :lack-middleware-session
                :caveman2
                :uiop
                :lack-middleware-validation
