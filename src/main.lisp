@@ -7,7 +7,8 @@
                 #:clackup)
   (:export #:start
            #:stop
-           #:*additional-components*))
+           #:*additional-components*)
+  (:export #:*session-key*))
 (in-package :strobolights)
 
 (defvar *appfile-path*
@@ -36,3 +37,5 @@
   (prog1
       (clack:stop *handler*)
     (setf *handler* nil)))
+
+(defvar *session-key* "strobolights.session")

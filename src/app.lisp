@@ -11,8 +11,10 @@
   (:import-from #:strobolights.config
                 #:config)
   (:import-from #:strobolights
-                #:*additional-components*))
+                #:*additional-components*
+                #:*session-key*))
 (in-package :strobolights.app)
+
 
 (defmacro build-app ()
   `(builder
@@ -21,7 +23,7 @@
         `(:backtrace
           :output ,(config :log :error :directory))
         nil)
-    (:session :state (lack.middleware.session.state.cookie:make-cookie-state :cookie-key "glpgs.session"))
+    (:session :state (lack.middleware.session.state.cookie:make-cookie-state :cookie-key *session-key*))
     :validation
     ,@*additional-components*
     *route*))
