@@ -12,9 +12,24 @@ exec ros -Q -- $0 "$@"
   (:use :cl))
 (in-package :ros.script.strobolights.3748303475)
 
+(ql:quickload :alexandria)
+
+(defun server ()
+  (let ((srv_str (uiop:getenv "STROBOLIGHTS_SERVER")))
+    (when srv_str
+      (alexandria:make-keyword srv_str))))
+
+(defun address ()
+  (uiop:getenv "STROBOLIGHTS_ADDRESS"))
+
+(defun port ()
+  (uiop:getenv "STROBOLIGHTS_PORT"))
+
 (defun main (&rest argv)
   (declare (ignorable argv))
-  (strobolights:start)
+  (strobolights:start :server  (server)
+                      :address (address)
+                      :port    (port))
   (do ((i 0)) (nil)
     (sleep 1)
     (if (/= 88888888 i)
