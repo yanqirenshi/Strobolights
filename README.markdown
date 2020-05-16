@@ -2,6 +2,12 @@
 
 The Unification of the My Application Server.
 
+The name is borrowed from the famous piece of SUPERCAR.
+
+It is a masterpiece like a light that illuminates everything.
+
+![SUPERCAR - Strobolights - ニコニコ動画a](https://www.nicovideo.jp/watch/sm21960939)
+
 ## Usage
 
 ```
