@@ -46,6 +46,7 @@
           value)))
 
 (defun init-config ()
+  (setf (config :http :server :address) "127.0.0.1")
   (setf (config :http :server :port) 55555)
   (setf (config :http :server :type) :woo)
   (setf (config :log :error :directory) nil)

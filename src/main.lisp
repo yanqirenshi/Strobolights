@@ -19,9 +19,9 @@
 (defparameter *additional-components* nil)
 
 (defun start (&rest args &key
-                           (server (config :http :server :type))
-                           (address nil)
-                           (port (config :http :server :port))
+                           (server  (config :http :server :type))
+                           (address (config :http :server :address))
+                           (port    (config :http :server :port))
                            debug &allow-other-keys)
   (declare (ignore debug))
   (unless server (error "(config :http :server :type) is nil"))
