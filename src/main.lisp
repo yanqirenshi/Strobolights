@@ -20,6 +20,7 @@
 
 (defun start (&rest args &key
                            (server (config :http :server :type))
+                           (address nil)
                            (port (config :http :server :port))
                            debug &allow-other-keys)
   (declare (ignore debug))
@@ -31,7 +32,10 @@
         :report "Restart the server"
         (stop))))
   (setf *handler*
-        (apply #'clackup *appfile-path* :server server :port port args)))
+        (apply #'clackup *appfile-path* :server server
+                                        :address address
+                                        :port port
+                                        args)))
 
 (defun stop ()
   (prog1
