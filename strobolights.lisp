@@ -37,7 +37,7 @@
         (alexandria:make-keyword (string-upcase srv_str)))))
 
 (defun address ()
-  (or (uiop:getenv "STROBOLIGHTS_ADDRESS)
+  (or (uiop:getenv "STROBOLIGHTS_ADDRESS")
       "127.0.0.1"))
 
 (defun port ()

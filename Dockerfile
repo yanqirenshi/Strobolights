@@ -10,7 +10,9 @@
 #####
 #####    Run
 #####    ---
-#####      docker run -it renshi/strobolights /bin/bash
+#####      docker run -it -p 55555:55555 renshi/strobolights
+#####      docker run -d  -p 55555:55555 renshi/strobolights
+#####      docker exec-it renshi/strobolights /bin/bash
 #####
 ##### ################################################################
 FROM renshi/common-lisp
