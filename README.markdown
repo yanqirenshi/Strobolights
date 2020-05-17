@@ -6,7 +6,13 @@ The name is borrowed from the famous piece of SUPERCAR.
 
 It is a masterpiece like a light that illuminates everything.
 
-![SUPERCAR - Strobolights - ニコニコ動画a](https://www.nicovideo.jp/watch/sm21960939)
+[SUPERCAR - Strobolights - ニコニコ動画](https://www.nicovideo.jp/watch/sm21960939)
+
+## Installation
+
+```
+(ql:quickload :strobolights)
+```
 
 ## Usage
 
@@ -19,10 +25,22 @@ It is a masterpiece like a light that illuminates everything.
 (strobolights:start)
 ```
 
-## Installation
+### Docker
 
 ```
-(ql:quickload :strobolights)
+docker run -it renshi/strobolights
+```
+
+### SBCL
+
+```
+sbcl --script strobolights.lisp
+```
+
+### Roswell
+
+```
+ros strobolights.ros
 ```
 
 ## Author

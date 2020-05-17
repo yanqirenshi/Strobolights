@@ -59,13 +59,13 @@ RUN git clone https://github.com/yanqirenshi/lack-middleware-validation.git
 ###
 ### make symbolic links for *.asd
 ###
-RUN ln -s /home/appl-user/prj/libs/world2world/world2world.asd                               /home/appl-user/.asdf/world2world.asd
-RUN ln -s /home/appl-user/prj/libs/sephirothic/sephirothic.asd                               /home/appl-user/.asdf/sephirothic.asd
-RUN ln -s /home/appl-user/prj/libs/takajin84key/takajin84key.asd                             /home/appl-user/.asdf/takajin84key.asd
+RUN ln -s /home/appl-user/prj/libs/world2world/world2world.asd         /home/appl-user/.asdf/world2world.asd
+RUN ln -s /home/appl-user/prj/libs/sephirothic/sephirothic.asd         /home/appl-user/.asdf/sephirothic.asd
+RUN ln -s /home/appl-user/prj/libs/takajin84key/takajin84key.asd       /home/appl-user/.asdf/takajin84key.asd
 
-RUN ln -s /home/appl-user/prj/libs/upanishad/upanishad.asd                                   /home/appl-user/.asdf/upanishad.asd
-RUN ln -s /home/appl-user/prj/libs/s-serialization/s-serialization.asd                       /home/appl-user/.asdf/s-serialization.asd
-RUN ln -s /home/appl-user/prj/libs/shinrabanshou/shinrabanshou.asd                           /home/appl-user/.asdf/shinrabanshou.asd
+RUN ln -s /home/appl-user/prj/libs/upanishad/upanishad.asd             /home/appl-user/.asdf/upanishad.asd
+RUN ln -s /home/appl-user/prj/libs/s-serialization/s-serialization.asd /home/appl-user/.asdf/s-serialization.asd
+RUN ln -s /home/appl-user/prj/libs/shinrabanshou/shinrabanshou.asd     /home/appl-user/.asdf/shinrabanshou.asd
 
 RUN ln -s /home/appl-user/prj/libs/lack-middleware-validation/lack-middleware-validation.asd /home/appl-user/.asdf/lack-middleware-validation.asd
 
@@ -78,7 +78,7 @@ WORKDIR /home/appl-user/prj/
 
 RUN git clone https://github.com/yanqirenshi/Strobolights.git
 
-RUN ln -s /home/appl-user/prj/Strobolights/strobolights.asd                                  /home/appl-user/.asdf/strobolights.asd
+RUN ln -s /home/appl-user/prj/Strobolights/strobolights.asd /home/appl-user/.asdf/strobolights.asd
 
 
 ##### ################################################################
@@ -86,3 +86,5 @@ RUN ln -s /home/appl-user/prj/Strobolights/strobolights.asd                     
 ##### ################################################################
 USER appl-user
 WORKDIR /home/appl-user/prj/Strobolights
+
+ENTRYPOINT ["/usr/bin/sbcl", "--script", "/home/appl-user/prj/Strobolights/strobolights.lisp"]
