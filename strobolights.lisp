@@ -41,8 +41,10 @@
       "127.0.0.1"))
 
 (defun port ()
-  (or (parse-integer (uiop:getenv "STROBOLIGHTS_PORT"))
-      55555))
+  (let ((port_str (uiop:getenv "STROBOLIGHTS_PORT")))
+    (if port_str
+        (parse-integer port_str)
+        55555)))
 
 (defun loop-eight ()
   (do ((i 0)) (nil)
