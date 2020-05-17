@@ -10,9 +10,9 @@
 #####
 #####    Run
 #####    ---
-#####      docker run -it -p 55555:55555 renshi/strobolights
-#####      docker run -d  -p 55555:55555 renshi/strobolights
-#####      docker exec-it renshi/strobolights /bin/bash
+#####      docker run  -it -p 55555:55555 renshi/strobolights
+#####      docker run  -d  -p 55555:55555 renshi/strobolights
+#####      docker exec -it renshi/strobolights /bin/bash
 #####
 ##### ################################################################
 FROM renshi/common-lisp
@@ -36,6 +36,7 @@ USER appl-user
 WORKDIR /home/appl-user/prj/
 
 RUN mkdir -p /home/appl-user/prj/libs/
+RUN mkdir -p /home/appl-user/var/log/strobolights/
 
 
 ##### ################################################################
@@ -84,6 +85,16 @@ RUN ln -s /home/appl-user/prj/Strobolights/strobolights.asd /home/appl-user/.asd
 
 
 ##### ################################################################
+#####  load lisp libs
+##### ################################################################
+USER appl-user
+WORKDIR /home/appl-user/prj/Strobolights
+
+RUN sbcl --eval "(ql:quickload :alexandria)"
+RUN sbcl --eval "(ql:quickload :strobolights)"
+
+
+##### ################################################################
 #####  run
 ##### ################################################################
 USER appl-user
@@ -93,4 +104,8 @@ ENV STROBOLIGHTS_SERVER  woo
 ENV STROBOLIGHTS_ADDRESS 0.0.0.0
 ENV STROBOLIGHTS_PORT    55555
 
-ENTRYPOINT ["/usr/bin/sbcl", "--script", "/home/appl-user/prj/Strobolights/strobolights.lisp"]
+EXPOSE 55555
+
+STOPSIGNAL SIGTERM
+
+ENTRYPOINT ["/bin/bash", "strobolights.sh"]
