@@ -87,4 +87,8 @@ RUN ln -s /home/appl-user/prj/Strobolights/strobolights.asd /home/appl-user/.asd
 USER appl-user
 WORKDIR /home/appl-user/prj/Strobolights
 
+ENV STROBOLIGHTS_SERVER  woo
+ENV STROBOLIGHTS_ADDRESS 0.0.0.0
+ENV STROBOLIGHTS_PORT    55555
+
 ENTRYPOINT ["/usr/bin/sbcl", "--script", "/home/appl-user/prj/Strobolights/strobolights.lisp"]

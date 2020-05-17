@@ -34,10 +34,10 @@
   (let ((srv_str (uiop:getenv "STROBOLIGHTS_SERVER")))
     (if (null srv_str)
         :woo
-        (alexandria:make-keyword srv_str))))
+        (alexandria:make-keyword (string-upcase srv_str)))))
 
 (defun address ()
-  (or (uiop:getenv "STROBOLIGHTS_ADDRESS")
+  (or (uiop:getenv "STROBOLIGHTS_ADDRESS)
       "127.0.0.1"))
 
 (defun port ()
@@ -46,7 +46,7 @@
         (parse-integer port_str)
         55555)))
 
-(defun loop-eight ()
+(defun figure-8 ()
   (do ((i 0)) (nil)
     (sleep 1)
     (if (/= 88888888 i)
@@ -63,7 +63,7 @@
   (strobolights:start :server  (server)
                       :address (address)
                       :port    (port))
-  (loop-eight))
+  (figure-8))
 
 
 ;;;;;
