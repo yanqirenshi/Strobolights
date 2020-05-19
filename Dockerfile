@@ -108,4 +108,7 @@ EXPOSE 55555
 
 STOPSIGNAL SIGTERM
 
-ENTRYPOINT ["/bin/bash", "strobolights.sh"]
+ENTRYPOINT ["/bin/bash"]
+CMD ["--help"]
+
+# "strobolights.sh"
